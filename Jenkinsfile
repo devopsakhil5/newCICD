@@ -21,7 +21,7 @@ pipeline
         {
             steps
             {
-              scp /home/ubuntu/.jenkins/workspace/sciptedpipeline4/webapp/target/webapp.war ubuntu@172.31.29.147:/var/lib/tomcat9/webapps/test
+              sh 'scp /home/ubuntu/.jenkins/workspace/sciptedpipeline4/webapp/target/webapp.war ubuntu@172.31.29.147:/var/lib/tomcat9/webapps/test'
             }
         }
         stage('ContinuousTesting')
