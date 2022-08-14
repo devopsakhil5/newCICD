@@ -21,7 +21,7 @@ pipeline
         {
             steps
             {
-               deploy adapters: [tomcat9(credentialsId: 'bfb67f1d-2f4e-430c-bb8d-30584116bd00', path: '', url: 'http://172.31.51.212:9090')], contextPath: 'test1', war: '**/*.war'
+              sh 'scp /home/ubuntu/.jenkins/workspace/sciptedpipeline4/webapp/target/webapp.war ubuntu@172.31.29.147:/var/lib/tomcat9/webapps/test'
             }
         }
         stage('ContinuousTesting')
@@ -29,7 +29,7 @@ pipeline
             steps
             {
                git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
-               sh 'java -jar /home/ubuntu/.jenkins/workspace/DeclarativePipeline1/testing.jar'
+               sh 'java -jar /home/ubuntu/.jenkins/workspace/sciptedpipeline4/testing.jar'
             }
         }
        
